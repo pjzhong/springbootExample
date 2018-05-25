@@ -1,0 +1,4 @@
+org.springframework.context.ApplicationListener=com.pjzhong.listener.ApplicationEnvironmentPreparedEvenListener,\
+  com.pjzhong.listener.ApplicationStartingEvenListener,\
+  com.pjzhong.listener.ApplicationStartedEvenListener,\
+  com.pjzhong.listener.ApplicationFailedEvenListener
