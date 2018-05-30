@@ -30,7 +30,7 @@ public class ApplicationTest {
         template.opsForValue().set("aaa", "111");
         Assert.assertEquals("111", template.opsForValue().get("aaa"));
 
-        //Using jdk Serializer
+        //Using jdk serialization
         User user = new User("你", 20);
         redisTemplate.opsForValue().set(user.getName(), user);
 

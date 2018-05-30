@@ -8,3 +8,4 @@
 - [Scheduled Task](chapter7)
 - [Async Task](chapter8)
 - [Email Sending](chapter9)
+- [Using Redis](chapter10)
