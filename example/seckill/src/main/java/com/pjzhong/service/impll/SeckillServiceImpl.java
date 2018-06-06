@@ -79,14 +79,13 @@ public class SeckillServiceImpl implements SeckillService  {
 
         //逻辑：减库存 + 记录购买行为
         try {
-            Date nowTime = new Date();
-            int updateCount = seckillMapper.reduceNumber(seckillId, nowTime);
-            if(updateCount <= 0) {
-                throw new SeckillCloseException("seckill close");
+            int insertCount = successKilledMapper.insertSuccessKilled(seckillId, userPhone);
+            if(insertCount <= 0) {
+                throw new RepeatKillException("Repeat seckill");
             } else {
-                int insertCount = successKilledMapper.insertSuccessKilled(seckillId, userPhone);
-                if(insertCount <= 0) {
-                    throw new RepeatKillException("Repeat seckill");
+                int updateCount = seckillMapper.reduceNumber(seckillId, new Date());
+                if(updateCount <= 0) {
+                    throw new SeckillCloseException("seckill close");
                 } else {
                     SuccessKilled successKilled = successKilledMapper.queryByIdWithSeckill(seckillId, userPhone);
                     return new SeckillExecution(seckillId, SeckillStatEnum.SUCCESS, successKilled);
