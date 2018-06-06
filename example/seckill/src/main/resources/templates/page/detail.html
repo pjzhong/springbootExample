@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <title>秒杀列表</title>
+</head>
+<body>
+<div class="container">
+    <div class="panel panel-default text-center">
+        <div th:text="${seckill.name}" class="panel-heading"></div>
+        <div class="panel-body">
+            <h2 class="text-danger">
+                <span class="glyphico glyphico-time"></span>
+                <span class="glyphico" id="seckill-box"></span>
+            </h2>
+        </div>
+    </div>
+</div>
+<div id="killPhoneModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title text-center">
+                    <span class="glyphico plyphico-hone">秒杀电话:</span>
+                </h3>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-8 col-xs-offset-2">
+                            <input type="text" name="killPhone" id="killPhoneKey" placeholder="填写手机号" class="from-control">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <span class="glyphicon" id="killPhoneMessage"></span>
+                    <button class="btn btn-success" id="killPhoneBtn" type="button">
+                        <span class="glyphicon glyphicon-phone"></span>Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery.countdown/2.1.0/jquery.countdown.min.js"></script>
+<script src="/static/script/seckill.js" type="text/javascript"></script>
+<script>
+    $(function(){
+        seckill.detail.init({
+            seckillId:[[${seckill.seckillId}]],
+            startTime:[[${seckill.startTime.time}]],
+            endTime:[[${seckill.endTime.time}]],
+        });
+    })
+</script>
+</html>

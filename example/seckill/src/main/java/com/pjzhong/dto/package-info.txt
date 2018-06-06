@@ -1,0 +1,1 @@
+dto主要是为了方便service和controller层进行业务封装的，因为entity通常是面对数据库的，而不是业务
